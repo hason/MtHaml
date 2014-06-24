@@ -1,0 +1,6 @@
+--JADE--
+- set foo = 'bar'
+- set list = [1,2,3]
+a(class=list, id=foo)
+--EXPECT--
+<a id="bar" class="1 2 3"></a>

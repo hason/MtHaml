@@ -3,8 +3,9 @@
 namespace MtHaml\Target;
 
 use MtHaml\Environment;
+use MtHaml\HamlParser;
+use MtHaml\JadeParser;
 use MtHaml\Node\NodeAbstract;
-use MtHaml\Parser;
 
 abstract class TargetAbstract implements TargetInterface
 {
@@ -19,8 +20,12 @@ abstract class TargetAbstract implements TargetInterface
 
     public function getDefaultParserFactory()
     {
-        return function (Environment $env, array $options) {
-            return new Parser;
+        return function (Environment $env, array $options, $filename = null) {
+            if ('jade' === pathinfo($filename, PATHINFO_EXTENSION)) {
+                return new JadeParser();
+            }
+
+            return new HamlParser();
         };
     }
 
@@ -38,9 +43,9 @@ abstract class TargetAbstract implements TargetInterface
         $this->parserFactory = $factory;
     }
 
-    public function createParser(Environment $env, array $options)
+    public function createParser(Environment $env, array $options, $filename = null)
     {
-        return call_user_func($this->getParserFactory(), $env, $options);
+        return call_user_func($this->getParserFactory(), $env, $options, $filename);
     }
 
     abstract public function getDefaultRendererFactory();
@@ -66,7 +71,7 @@ abstract class TargetAbstract implements TargetInterface
 
     public function parse(Environment $env, $string, $filename)
     {
-        $parser = $this->createParser($env, $this->options);
+        $parser = $this->createParser($env, $this->options, $filename);
 
         return $parser->parse($string, $filename);
     }

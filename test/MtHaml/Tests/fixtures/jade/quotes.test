@@ -1,0 +1,6 @@
+--JADE--
+p "foo"
+p 'foo'
+--EXPECT--
+<p>"foo"</p>
+<p>'foo'</p>

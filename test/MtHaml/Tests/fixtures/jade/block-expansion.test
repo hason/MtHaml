@@ -1,0 +1,12 @@
+--JADE--
+ul
+  li: a(href='#') foo
+  li: a(href='#') bar
+
+p baz
+--EXPECT--
+<ul>
+  <li><a href="#">foo</a></li>
+  <li><a href="#">bar</a></li>
+</ul>
+<p>baz</p>

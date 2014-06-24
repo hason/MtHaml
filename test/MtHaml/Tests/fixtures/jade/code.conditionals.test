@@ -1,0 +1,48 @@
+--JADE--
+
+- if (true)
+  p foo
+- else
+  p bar
+
+- if (true) {
+  p foo
+- } else {
+  p bar
+- }
+
+if true
+  p foo
+  p bar
+  p baz
+else
+  p bar
+
+unless true
+  p foo
+else
+  p bar
+
+if 'nested'
+  if 'works'
+    p yay
+
+//- allow empty blocks
+if false
+else
+  .bar
+if true
+  .bar
+else
+.bing
+--EXPECT--
+<p>foo</p>
+<p>foo</p>
+<p>foo</p>
+<p>bar</p>
+<p>baz</p>
+<p>bar</p>
+<p>yay</p>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bing"></div>

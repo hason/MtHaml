@@ -1,0 +1,13 @@
+--JADE--
+html
+  body
+    p
+      include include-only-text-body
+        em hello world
+
+--EXPECT--
+<html>
+  <body>
+    <p>The message is "<em>hello world</em>"</p>
+  </body>
+</html>

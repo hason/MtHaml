@@ -1,0 +1,14 @@
+--JADE--
+
+- users = [{ name: 'tobi', age: 2 }]
+
+fb:users
+  for user in users
+    fb:user(age=user.age)
+      :cdata
+        #{user.name}
+--EXPECT--
+<fb:users>
+  <fb:user age="2"><![CDATA[tobi]]>
+  </fb:user>
+</fb:users>

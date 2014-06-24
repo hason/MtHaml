@@ -1,0 +1,34 @@
+--JADE--
+
+- set tag = 'p'
+- set foo = 'bar'
+
+#{tag} value
+#{tag}(foo='bar') value
+#{foo ? 'a' : 'li'}(something) here
+
+mixin item(icon)
+  li
+    if attributes.href
+      a&attributes(attributes)
+        img.icon(src=icon)
+        block
+    else
+      span&attributes(attributes)
+        img.icon(src=icon)
+        block
+
+ul
+  +item('contact') Contact
+  +item(href='/contact') Contact
+
+--EXPECT--
+<p>value</p>
+<p foo="bar">value</p>
+<a something="something">here</a>
+<ul>
+  <li><span><img src="contact" class="icon"/>Contact</span>
+  </li>
+  <li><a href="/contact"><img class="icon"/>Contact</a>
+  </li>
+</ul>

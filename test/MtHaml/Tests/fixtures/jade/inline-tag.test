@@ -1,0 +1,30 @@
+--JADE--
+p bing #[strong foo] bong
+
+p.
+  bing
+  #[strong foo]
+  bong
+
+p
+  | bing
+  | #[strong foo]
+  | bong
+
+p.
+  \#[strong escaped]
+  \#[#[strong escaped]
+--EXPECT--
+
+<p>bing <strong>foo</strong> bong</p>
+<p>
+  bing
+  <strong>foo</strong>
+  bong
+  
+</p>
+<p>bing<strong>foo</strong>bong</p>
+<p>
+  #[strong escaped]
+  #[<strong>escaped</strong>
+</p>

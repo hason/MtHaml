@@ -1,0 +1,5 @@
+--JADE--
+﻿p "foo"
+
+--EXPECT--
+<p>"foo"</p>

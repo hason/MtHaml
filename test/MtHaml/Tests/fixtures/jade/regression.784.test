@@ -1,0 +1,5 @@
+--JADE--
+- set url = 'http://www.google.com'
+.url #{url.replace('http://', '').replace(/^www\./, '')}
+--EXPECT--
+<div class="url">google.com</div>

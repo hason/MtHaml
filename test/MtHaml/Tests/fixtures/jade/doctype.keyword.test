@@ -1,0 +1,4 @@
+--JADE--
+doctype html
+--EXPECT--
+<!DOCTYPE html>

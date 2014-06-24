@@ -1,0 +1,6 @@
+--JADE--
+fb:user:role Something
+foo(fb:foo='bar')
+--EXPECT--
+<fb:user:role>Something</fb:user:role>
+<foo fb:foo="bar"></foo>

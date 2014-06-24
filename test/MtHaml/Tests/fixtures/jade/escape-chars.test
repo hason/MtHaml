@@ -1,0 +1,5 @@
+--JADE--
+script.
+  var re = /\d+/;
+--EXPECT--
+<script>var re = /\d+/;</script>

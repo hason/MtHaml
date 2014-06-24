@@ -2,12 +2,12 @@
 
 namespace MtHaml\Tests;
 
-use MtHaml\Parser;
+use MtHaml\HamlParser;
 use MtHaml\NodeVisitor\Printer;
 
 require_once __DIR__ . '/TestCase.php';
 
-class ParserTest extends TestCase
+class HamlParserTest extends TestCase
 {
     /** @dataProvider getParserFixtures */
     public function testParser($file)
@@ -15,7 +15,7 @@ class ParserTest extends TestCase
         $parts = $this->parseTestFile($file);
 
         try {
-            $parser = new Parser;
+            $parser = new HamlParser;
             $node = $parser->parse($parts['HAML'], $file, 2);
 
             $renderer = new Printer;

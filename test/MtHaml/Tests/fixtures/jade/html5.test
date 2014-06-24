@@ -1,0 +1,10 @@
+--JADE--
+doctype html
+input(type='checkbox', checked)
+input(type='checkbox', checked=true)
+input(type='checkbox', checked=false)
+--EXPECT--
+<!DOCTYPE html>
+<input type="checkbox" checked>
+<input type="checkbox" checked>
+<input type="checkbox">

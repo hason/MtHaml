@@ -1,0 +1,51 @@
+--JADE--
+mixin comment(title, str)
+  .comment
+    h2= title
+    p.body= str
+
+
+mixin comment (title, str)
+  .comment
+    h2= title
+    p.body= str
+
+#user
+  h1 Tobi
+  .comments
+    +comment('This',
+            (('is regular, javascript')))
+
+mixin list
+  ul
+    li foo
+    li bar
+    li baz
+
+body
+  mixin list()
+
+mixin foobar(str)
+  div#interpolation= str + 'interpolated'
+
+- set suffix = "bar"
++#{'foo' + suffix}('This is ')
+
+--EXPECT--
+<div id="user">
+  <h1>Tobi</h1>
+  <div class="comments">
+    <div class="comment">
+      <h2>This</h2>
+      <p class="body">is regular, javascript</p>
+    </div>
+  </div>
+</div>
+<body>
+  <ul>
+    <li>foo</li>
+    <li>bar</li>
+    <li>baz</li>
+  </ul>
+</body>
+<div id="interpolation">This is interpolated</div>

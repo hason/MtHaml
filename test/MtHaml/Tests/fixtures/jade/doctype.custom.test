@@ -1,0 +1,4 @@
+--JADE--
+doctype custom stuff
+--EXPECT--
+<!DOCTYPE custom stuff>

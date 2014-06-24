@@ -1,0 +1,15 @@
+--JADE--
+
+mixin foo()
+  h1= title
+
+html
+  body
+    mixin foo
+
+--EXPECT--
+<html>
+  <body>
+    <h1>Jade</h1>
+  </body>
+</html>

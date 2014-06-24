@@ -1,0 +1,72 @@
+--JADE--
+
+- set users = []
+
+ul
+  for user in users
+    li= user.name
+  else
+    li no users!
+
+
+- set users = [{ name: 'tobi', friends: ['loki'] }, { name: 'loki' }]
+
+if users
+  ul
+    for user in users
+      li= user.name
+    else
+      li no users!
+
+- set user = { name: 'tobi', age: 10 }
+
+ul
+  each val, key in user
+    li #{key}: #{val}
+  else
+    li user has no details!
+
+- set user = {}
+
+ul
+  each prop, key in user
+    li #{key}: #{val}
+  else
+    li user has no details!
+
+ul
+  - each prop, key in user
+    li #{key}: #{val}
+  - else
+    li user has no details!
+
+- set user = Object.create(null)
+- user.name = 'tobi'
+
+ul
+  each val, key in user
+    li #{key}: #{val}
+  else
+    li user has no details!
+
+--EXPECT--
+<ul>
+  <li>no users!</li>
+</ul>
+<ul>
+  <li>tobi</li>
+  <li>loki</li>
+</ul>
+<ul>
+  <li>name: tobi</li>
+  <li>age: 10</li>
+</ul>
+<ul>
+  <li>user has no details!</li>
+</ul>
+<ul>
+  <li>user has no details!</li>
+</ul>
+<ul>
+  <li>name: tobi</li>
+</ul>

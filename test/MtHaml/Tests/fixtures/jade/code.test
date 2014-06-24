@@ -1,0 +1,22 @@
+--JADE--
+p= null
+p= undefined
+p= ''
+p= 0
+p= false
+p(foo=null)
+p(foo=undefined)
+p(foo='')
+p(foo=0)
+p(foo=false)
+--EXPECT--
+<p></p>
+<p></p>
+<p></p>
+<p>0</p>
+<p>false</p>
+<p></p>
+<p></p>
+<p foo=""></p>
+<p foo="0"></p>
+<p></p>

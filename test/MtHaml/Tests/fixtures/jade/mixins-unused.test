@@ -1,0 +1,6 @@
+--JADE--
+mixin never-called
+  .wtf This isn't something we ever want to output
+body
+--EXPECT--
+<body></body>

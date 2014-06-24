@@ -1,0 +1,13 @@
+--JADE--
+head
+  title
+    yield
+  script(src='/jquery.js')
+  script(src='/jquery.ui.js')
+
+--EXPECT--
+<head>
+  <title></title>
+  <script src="/jquery.js"></script>
+  <script src="/jquery.ui.js"></script>
+</head>

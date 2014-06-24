@@ -1,0 +1,9 @@
+--JADE--
+style(type="text/css")
+  include:styl some.styl
+
+--EXPECT--
+<style type="text/css">body {
+  padding: 10px;
+}
+</style>

@@ -1,0 +1,22 @@
+--JADE--
+
+body
+  foo
+  foo(bar='baz')
+  foo/
+  foo(bar='baz')/
+  foo /
+  foo(bar='baz') /
+  //- can have a single space after them
+  img 
+  //- can have lots of white space after them
+  img    
+--EXPECT--
+<body>
+  <foo></foo>
+  <foo bar="baz"></foo>
+  <foo/>
+  <foo bar="baz"/>
+  <foo>/</foo>
+  <foo bar="baz">/</foo><img/><img/>
+</body>

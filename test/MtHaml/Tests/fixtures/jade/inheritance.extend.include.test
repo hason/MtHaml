@@ -1,0 +1,29 @@
+--JADE--
+
+extend auxiliary/layout.include
+
+block head
+  script(src='jquery.js')
+
+block content
+  h2 Page
+  p Some content
+
+block window-content
+  h2 Awesome
+  p Now we can extend included blocks!
+--EXPECT--
+<html>
+  <head>
+    <title>My Application</title>
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <h2>Page</h2>
+    <p>Some content</p>
+    <div class="window"><a href="#" class="close">Close</a>
+      <h2>Awesome</h2>
+      <p>Now we can extend included blocks!</p>
+    </div>
+  </body>
+</html>

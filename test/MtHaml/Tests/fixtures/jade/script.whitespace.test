@@ -1,0 +1,15 @@
+--JADE--
+script.
+  if (foo) {
+    
+    bar();
+  
+  }
+--EXPECT--
+<script>
+  if (foo) {
+    
+    bar();
+  
+  }
+</script>

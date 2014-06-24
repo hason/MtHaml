@@ -1,0 +1,7 @@
+--JADE--
+| The message is "
+yield
+| "
+
+--EXPECT--
+The message is ""

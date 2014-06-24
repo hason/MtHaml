@@ -1,0 +1,12 @@
+--JADE--
+doctype
+html
+  body
+    h1 Title
+--EXPECT--
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Title</h1>
+  </body>
+</html>

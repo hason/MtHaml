@@ -1,0 +1,5 @@
+--JADE--
+:custom-filter(foo='bar')
+  foo bar
+--EXPECT--
+bar baz

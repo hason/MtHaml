@@ -1,0 +1,14 @@
+--JADE--
+
+label Username:
+  input(type='text', name='user[name]')
+
+label Password:
+  input(type='text', name='user[pass]')
+--EXPECT--
+<label>Username:
+  <input type="text" name="user[name]"/>
+</label>
+<label>Password:
+  <input type="text" name="user[pass]"/>
+</label>

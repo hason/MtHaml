@@ -1,0 +1,14 @@
+--JADE--
+
+extends auxiliary/dialog
+
+block content
+  h1 Alert!
+  p I'm an alert!
+--EXPECT--
+<div class="window"><a href="#" class="close">Close</a>
+  <div class="dialog">
+    <h1>Alert!</h1>
+    <p>I'm an alert!</p>
+  </div>
+</div>

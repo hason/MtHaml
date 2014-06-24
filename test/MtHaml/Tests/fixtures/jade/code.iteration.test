@@ -1,0 +1,73 @@
+--JADE--
+
+- set items = [1,2,3]
+
+ul
+  - items.forEach(function(item){
+    li= item
+  - })
+
+- set items = [1,2,3]
+
+ul
+  for item, i in items
+    li(class='item-#{i}')= item
+
+ul
+  each item, i in items
+    li= item
+
+ul
+  each $item in items
+    li= $item
+
+- set nums = [1, 2, 3]
+- set letters = ['a', 'b', 'c']
+
+ul
+  for l in letters
+    for n in nums
+      li #{n}: #{l}
+
+- set count = 1
+- set counter = function() { return [count++, count++, count++] }
+ul
+  for n in counter()
+    li #{n}
+--EXPECT--
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<ul>
+  <li class="item-0">1</li>
+  <li class="item-1">2</li>
+  <li class="item-2">3</li>
+</ul>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<ul>
+  <li>1: a</li>
+  <li>2: a</li>
+  <li>3: a</li>
+  <li>1: b</li>
+  <li>2: b</li>
+  <li>3: b</li>
+  <li>1: c</li>
+  <li>2: c</li>
+  <li>3: c</li>
+</ul>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>

@@ -1,0 +1,30 @@
+--JADE--
+extends ../fixtures/multi-append-prepend-block/redefine
+
+append content
+	p.first.append Something appended to content
+
+prepend content
+	p.first.prepend Something prepended to content
+
+append content
+	p.last.append Last append must be most last
+
+prepend content
+	p.first.prepend Last prepend must appear at top
+
+append head
+	script(src='jquery.js')
+
+prepend head
+	script(src='foo.js')
+
+--EXPECT--
+<p class="first prepend">Last prepend must appear at top</p>
+<p class="first prepend">Something prepended to content</p>
+<div class="content">Defined content</div>
+<p class="first append">Something appended to content</p>
+<p class="last append">Last append must be most last</p>
+<script src="foo.js"></script>
+<script src="/app.js"></script>
+<script src="jquery.js"></script>

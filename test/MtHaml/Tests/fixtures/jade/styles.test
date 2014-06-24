@@ -1,0 +1,17 @@
+--JADE--
+html
+  head
+    style.
+      body {
+        padding: 50px;
+      }
+--EXPECT--
+<html>
+  <head>
+    <style>
+      body {
+        padding: 50px;
+      }
+    </style>
+  </head>
+</html>

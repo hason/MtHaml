@@ -1,0 +1,18 @@
+--JADE--
+html
+  head
+    style(type="text/css")
+      :stylus
+        body
+          padding: 50px
+  body
+
+--EXPECT--
+<html>
+  <head><style type="text/css">body {
+  padding: 50px;
+}
+</style>
+  </head>
+  <body></body>
+</html>

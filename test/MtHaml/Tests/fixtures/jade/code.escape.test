@@ -1,0 +1,6 @@
+--JADE--
+p= '<script>'
+p!= '<script>'
+--EXPECT--
+<p>&lt;script&gt;</p>
+<p><script></p>

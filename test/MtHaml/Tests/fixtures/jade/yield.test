@@ -1,0 +1,18 @@
+--JADE--
+html
+  body
+    include yield-head
+      script(src='/caustic.js')
+      script(src='/app.js')
+
+--EXPECT--
+<html>
+  <body>
+    <head>
+      <script src="/jquery.js"></script>
+      <script src="/caustic.js"></script>
+      <script src="/app.js"></script>
+      <script src="/jquery.ui.js"></script>
+    </head>
+  </body>
+</html>

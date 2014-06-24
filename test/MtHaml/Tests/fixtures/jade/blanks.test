@@ -1,0 +1,16 @@
+--JADE--
+
+
+ul
+  li foo
+
+  li bar
+      
+  li baz
+
+--EXPECT--
+<ul>
+  <li>foo</li>
+  <li>bar</li>
+  <li>baz</li>
+</ul>

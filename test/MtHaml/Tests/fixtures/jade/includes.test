@@ -1,0 +1,26 @@
+--JADE--
+
+include auxiliary/mixins
+
++foo
+
+body
+  include auxiliary/smile.html
+  include auxiliary/escapes.html
+  script(type="text/javascript")
+    include:js auxiliary/includable.js
+
+--EXPECT--
+<p>bar</p>
+<body><p>:)</p><script>
+  console.log("foo\nbar")
+</script>
+  <script type="text/javascript">var STRING_SUBSTITUTIONS = {    // table of character substitutions
+  '\t': '\\t',
+  '\r': '\\r',
+  '\n': '\\n',
+  '"' : '\\"',
+  '\\': '\\\\'
+};
+  </script>
+</body>

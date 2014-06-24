@@ -1,0 +1,21 @@
+--JADE--
+ul
+  li a
+  li b
+  li
+    ul
+        li c
+        li d
+  li e
+--EXPECT--
+<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>
+    <ul>
+      <li>c</li>
+      <li>d</li>
+    </ul>
+  </li>
+  <li>e</li>
+</ul>

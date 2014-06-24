@@ -1,0 +1,19 @@
+--JADE--
+pre.
+  foo
+  bar
+  baz
+
+pre
+  code.
+    foo
+    bar
+    baz
+--EXPECT--
+<pre>foo
+bar
+baz
+</pre>
+<pre><code>foo
+bar
+baz</code></pre>

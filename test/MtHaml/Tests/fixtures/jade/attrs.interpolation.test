@@ -1,0 +1,7 @@
+--JADE--
+- set id = 5
+a(href='/user/#{id}')
+foo(bar='stuff \#{here} yup')
+--EXPECT--
+<a href="/user/5"></a>
+<foo bar="stuff #{here} yup"></foo>

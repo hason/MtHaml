@@ -1,0 +1,17 @@
+--JADE--
+script(type='text/javascript')
+  :coffeescript
+    regexp = /\n/
+  :coffeescript(minify=true)
+    math =
+      square: (value) -> value * value
+--EXPECT--
+<script type="text/javascript">
+(function() {
+  var regexp;
+
+  regexp = /\n/;
+
+}).call(this);
+(function(){var n;n={square:function(n){return n*n}}}).call(this);
+</script>

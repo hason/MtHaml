@@ -1,0 +1,21 @@
+--JADE--
+doctype html
+html
+    head
+        title escape-test
+    body
+        textarea
+            - set txt = '<param name="flashvars" value="a=&quot;value_a&quot;&b=&quot;value_b&quot;&c=3"/>'
+            | #{txt}
+
+--EXPECT--
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>escape-test</title>
+  </head>
+  <body>
+    <textarea>&lt;param name=&quot;flashvars&quot; value=&quot;a=&amp;quot;value_a&amp;quot;&amp;b=&amp;quot;value_b&amp;quot;&amp;c=3&quot;/&gt;
+    </textarea>
+  </body>
+</html>

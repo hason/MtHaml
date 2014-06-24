@@ -1,0 +1,12 @@
+--JADE--
+a(class=['foo', 'bar', 'baz'])
+
+
+
+a.foo(class='bar').baz
+
+   
+
+a.foo-bar_baz
+--EXPECT--
+<a class="foo bar baz"></a><a class="foo bar baz"></a><a class="foo-bar_baz"></a>

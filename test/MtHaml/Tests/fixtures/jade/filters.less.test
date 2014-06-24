@@ -1,0 +1,18 @@
+--JADE--
+html
+  head
+    style(type="text/css")
+      :less
+        @pad: 15px;
+        body {
+          padding: @pad;
+        }
+
+--EXPECT--
+<html>
+  <head><style type="text/css">body {
+  padding: 15px;
+}
+</style>
+  </head>
+</html>

@@ -1,0 +1,22 @@
+--JADE--
+html
+  body
+    - set friends = 1
+    case friends
+      when 0: p you have no friends
+      when 1: p you have a friend
+      default: p you have #{friends} friends
+    - set friends = 0
+    case friends
+      when 0
+      when 1
+        p you have very few friends
+      default
+        p you have #{friends} friends
+--EXPECT--
+<html>
+  <body>
+    <p>you have a friend</p>
+    <p>you have very few friends</p>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+--JADE--
+a(class='')
+a(class=null)
+a(class=undefined)
+--EXPECT--
+<a></a><a></a><a></a>

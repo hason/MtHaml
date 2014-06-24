@@ -1,0 +1,4 @@
+--JADE--
+span .
+--EXPECT--
+<span>.</span>

@@ -24,10 +24,28 @@ class CoffeeScript extends AbstractFilter
 
     public function filter($content, array $context, $options)
     {
-        if (isset($options['cdata']) && $options['cdata'] === true) {
-            return "<script type=\"text/javascript\">\n//<![CDATA[\n".$this->coffeescript->compile($content, $this->options)."\n//]]\n</script>";
+        $output = "<script type=\"text/javascript\">\n";
+
+        if ($options['escaping'] === true) {
+            $output .= '{% autoescape "js" %}';
         }
 
-        return "<script type=\"text/javascript\">\n".$this->coffeescript->compile($content, $this->options)."\n</script>";
+        if (isset($options['cdata']) && $options['cdata'] === true) {
+            $output .= "//<![CDATA[\n";
+        }
+
+        $output .= $this->coffeescript->compile($content, $this->options);
+
+        if (isset($options['cdata']) && $options['cdata'] === true) {
+            $output .= "\n//]]\n";
+        }
+
+        if ($options['escaping'] === true) {
+            $output .= '{% endautoescape %}';
+        }
+
+        $output .= "</script>";
+
+        return $output;
     }
 }

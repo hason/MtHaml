@@ -10,6 +10,11 @@ class Javascript extends Plain
     public function optimize(Renderer $renderer, Filter $filter, $options)
     {
         $renderer->write('<script type="text/javascript">');
+
+        if ($options['escaping'] === true) {
+            $renderer->write('{% autoescape "js" %}');
+        }
+
         if ($options['cdata'] === true) {
             $renderer->write('//<![CDATA[');
         }
@@ -21,6 +26,11 @@ class Javascript extends Plain
         if ($options['cdata'] === true) {
             $renderer->write('//]]>');
         }
+
+        if ($options['escaping'] === true) {
+            $renderer->write('{% endautoescape %}');
+        }
+
         $renderer->write('</script>');
     }
 }

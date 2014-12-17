@@ -10,8 +10,10 @@ use MtHaml\Node\Tag;
 use MtHaml\Node\ObjectRefClass;
 use MtHaml\Node\ObjectRefId;
 use MtHaml\Node\NodeAbstract;
+use MtHaml\Node\TagAttribute;
 use MtHaml\Node\TagAttributeInterpolation;
 use MtHaml\Node\TagAttributeList;
+use MtHaml\Node\Text;
 
 class TwigRenderer extends RendererAbstract
 {
@@ -173,6 +175,50 @@ class TwigRenderer extends RendererAbstract
             $this->write('{% endfilter %}');
             $this->indent = $this->popSavedIndent();
         }
+    }
+
+    public function enterTagAttributeValue(TagAttribute $node)
+    {
+        $this->raw('="');
+        $value = $node->getValue();
+
+        $autoescape = false;
+        if ($value instanceof InterpolatedString) {
+            foreach ($value->getChilds() as $child) {
+                if ($child instanceof Insert) {
+                    $autoescape = true;
+                    break;
+                }
+            }
+        } elseif (!$value instanceof Text) {
+            $autoescape = true;
+        }
+
+        if ($autoescape) {
+            $this->raw('{% autoescape "html_attr" %}');
+        }
+    }
+
+    public function leaveTagAttributeValue(TagAttribute $node)
+    {
+        $value = $node->getValue();
+        $autoescape = false;
+        if ($value instanceof InterpolatedString) {
+            foreach ($value->getChilds() as $child) {
+                if ($child instanceof Insert) {
+                    $autoescape = true;
+                    break;
+                }
+            }
+        } elseif (!$value instanceof Text) {
+            $autoescape = true;
+        }
+
+        if ($autoescape) {
+            $this->raw('{% endautoescape %}');
+        }
+
+        $this->raw('"');
     }
 
     protected function renderTag($content)
